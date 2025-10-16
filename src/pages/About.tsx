@@ -1,96 +1,116 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Users, Globe, BookOpen, Scale } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-const values = [
-  {
-    title: "Open Standards",
-    description: "TrustlessMark is built on open, transparent specifications governed by the community.",
-  },
-  {
-    title: "Decentralization",
-    description: "No single authority controls the network. Trust is distributed across the ecosystem.",
-  },
-  {
-    title: "Interoperability",
-    description: "Works seamlessly across different blockchain networks and verification systems.",
-  },
-];
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-20">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              About TrustlessMark
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              The TrustlessMark Foundation is a public non-profit organization dedicated to advancing 
-              open standards for decentralized verification and digital attestation.
+        <section className="py-20 px-4 border-b">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Who We Are</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              An independent standards body for verifiable transparency.
             </p>
           </div>
         </section>
 
         {/* Mission Section */}
-        <section className="py-16 bg-background">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="mb-4">
-                In an increasingly digital world, the need for trusted, verifiable credentials has never been greater. 
-                Traditional verification systems rely on centralized authorities, creating single points of failure 
-                and limiting accessibility.
-              </p>
-              <p className="mb-4">
-                TrustlessMark provides an alternative: a cryptographically secure, decentralized standard for 
-                attestations that anyone can verify independently. By anchoring credentials on-chain and using 
-                open cryptographic protocols, we enable trustless verification at scale.
-              </p>
-              <p>
-                Our mission is to make digital trust accessible, transparent, and interoperable across the 
-                entire Web3 ecosystem and beyond.
-              </p>
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-3xl">
+            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
+              The TrustlessMark Foundation is a nonprofit organization that maintains the TrustlessMark Protocol — an open standard for cryptographically verifiable certification data. Founded in 2025, it emerged from the Open Coffee Proof project and now spans food, beverage, and consumer goods industries. The Foundation operates with multi‑stakeholder governance, representing laboratories, retailers, and academic experts.
+            </p>
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              Download the Charter
+            </Button>
+          </div>
+        </section>
+
+        {/* Core Values */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Core Principles</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Card className="p-6 text-center border-border bg-card">
+                <Scale className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-lg font-semibold mb-2">Independence</h3>
+                <p className="text-sm text-muted-foreground">
+                  We operate as a neutral, nonprofit standards body free from commercial influence.
+                </p>
+              </Card>
+
+              <Card className="p-6 text-center border-border bg-card">
+                <BookOpen className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-lg font-semibold mb-2">Open Standards</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our protocol is open-source and publicly documented for universal access.
+                </p>
+              </Card>
+
+              <Card className="p-6 text-center border-border bg-card">
+                <Globe className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-lg font-semibold mb-2">Decentralization</h3>
+                <p className="text-sm text-muted-foreground">
+                  No single entity controls the verification infrastructure or data.
+                </p>
+              </Card>
+
+              <Card className="p-6 text-center border-border bg-card">
+                <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-lg font-semibold mb-2">Multi-Stakeholder</h3>
+                <p className="text-sm text-muted-foreground">
+                  Governance includes labs, retailers, technologists, and consumer advocates.
+                </p>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Core Values</h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {values.map((value) => (
-                <Card key={value.title}>
-                  <CardHeader>
-                    <CardTitle>{value.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{value.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
+        {/* Governance */}
+        <section className="py-16 px-4 border-t">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold text-center mb-8">Governance Structure</h2>
+            <div className="space-y-6">
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-xl font-semibold mb-3">Founding Council</h3>
+                <p className="text-muted-foreground">
+                  A multi-stakeholder board representing laboratory science, digital commerce, blockchain technology, and consumer advocacy. The Council guides strategic direction and maintains protocol integrity.
+                </p>
+              </Card>
+
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-xl font-semibold mb-3">Technical Committee</h3>
+                <p className="text-muted-foreground">
+                  Engineers and cryptographers responsible for protocol development, security audits, and technical standards maintenance.
+                </p>
+              </Card>
+
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-xl font-semibold mb-3">Accreditation Board</h3>
+                <p className="text-muted-foreground">
+                  Reviews and approves laboratories and verification partners seeking to issue TrustlessMark certifications.
+                </p>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Governance Section */}
-        <section className="py-16 bg-background">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Governance</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="mb-4">
-                The TrustlessMark Foundation operates as a member-based organization. Technical standards 
-                are developed collaboratively through working groups composed of industry experts, 
-                developers, and institutional stakeholders.
+        {/* History */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold text-center mb-8">Our History</h2>
+            <div className="space-y-4 text-foreground/80">
+              <p className="leading-relaxed">
+                TrustlessMark began as the Open Coffee Proof project in 2024, a grassroots initiative to bring laboratory-verified transparency to specialty coffee. The project demonstrated that cryptographic verification could make product claims measurable and accountable.
               </p>
-              <p>
-                All specifications and reference implementations are published under open-source licenses, 
-                ensuring transparency and community participation in the evolution of the standard.
+              <p className="leading-relaxed">
+                In 2025, the project evolved into the TrustlessMark Foundation to expand the framework beyond coffee into broader food, beverage, and consumer goods categories. The Foundation now serves as the neutral custodian of the open standard.
               </p>
             </div>
           </div>

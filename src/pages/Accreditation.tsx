@@ -43,42 +43,30 @@ const Accreditation = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-20">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+        <section className="bg-background py-20 border-b">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Accreditation
+              Join the TrustlessMark Network
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Become an authorized issuer in the TrustlessMark network. Our accreditation process 
-              ensures that only qualified, trustworthy organizations can issue verified credentials.
+              For laboratories, retailers, and verification partners.
             </p>
           </div>
         </section>
 
-        {/* Why Get Accredited */}
+        {/* Overview */}
         <section className="py-16 bg-background">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Why Get Accredited?</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="mb-4">
-                Accredited issuers are recognized members of the TrustlessMark ecosystem with the authority 
-                to issue verifiable credentials that are trusted across the network. Benefits include:
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li>Authority to issue cryptographically verifiable attestations</li>
-                <li>Recognition by relying parties across the ecosystem</li>
-                <li>Access to reference implementations and developer tools</li>
-                <li>Participation in governance and standards development</li>
-                <li>Listing in the official TrustlessMark registry</li>
-              </ul>
-            </div>
+          <div className="mx-auto max-w-3xl px-6 lg:px-8">
+            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
+              Accredited Members are organizations authorized to issue or host TrustlessMark proofs. The Foundation accredits independent laboratories, auditing firms, and digital commerce platforms that meet our verification and data integrity standards.
+            </p>
           </div>
         </section>
 
         {/* Requirements */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16 bg-surface border-t">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Accreditation Requirements</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center">Accreditation Requirements</h2>
             <Card>
               <CardHeader>
                 <CardTitle>Eligibility Criteria</CardTitle>
@@ -101,9 +89,9 @@ const Accreditation = () => {
         </section>
 
         {/* Process */}
-        <section className="py-16 bg-background">
+        <section className="py-16 bg-background border-t">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Accreditation Process</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">The Process</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {process.map((item) => (
                 <Card key={item.step}>

@@ -9,26 +9,14 @@ import { Mail, MessageSquare, Users } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const contactOptions = [
-  {
-    icon: Mail,
-    title: "General Inquiries",
-    description: "For questions about TrustlessMark or partnership opportunities",
-    contact: "hello@trustlessmark.org",
+const contactInfo = {
+  email: "hello@trustlessmark.org",
+  address: {
+    name: "TrustlessMark Foundation",
+    street: "13101 Preston Rd. #110534",
+    city: "Dallas, TX 75240",
   },
-  {
-    icon: Users,
-    title: "Accreditation",
-    description: "Apply to become an accredited issuer in the network",
-    contact: "accreditation@trustlessmark.org",
-  },
-  {
-    icon: MessageSquare,
-    title: "Technical Support",
-    description: "Developer support and technical questions",
-    contact: "support@trustlessmark.org",
-  },
-];
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -54,47 +42,59 @@ const Contact = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-20">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+        <section className="bg-background py-20 border-b">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Contact Us
+              Connect With the Foundation
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Have questions or want to learn more about TrustlessMark? We'd love to hear from you.
+              For membership, accreditation, or media inquiries, please reach out to our team.
             </p>
           </div>
         </section>
 
-        {/* Contact Options */}
+        {/* Contact Info */}
         <section className="py-16 bg-background">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-16">
-              {contactOptions.map((option) => (
-                <Card key={option.title}>
-                  <CardHeader>
-                    <option.icon className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="text-lg">{option.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="mb-3">{option.description}</CardDescription>
-                    <a
-                      href={`mailto:${option.contact}`}
-                      className="text-sm text-primary hover:underline font-medium"
-                    >
-                      {option.contact}
-                    </a>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Mail className="w-8 h-8 text-primary mb-2" />
+                  <CardTitle>Email</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-lg text-primary hover:underline font-medium"
+                  >
+                    {contactInfo.email}
+                  </a>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Users className="w-8 h-8 text-primary mb-2" />
+                  <CardTitle>Mailing Address</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-muted-foreground">
+                    <p className="font-medium text-foreground">{contactInfo.address.name}</p>
+                    <p>{contactInfo.address.street}</p>
+                    <p>{contactInfo.address.city}</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Contact Form */}
             <div className="max-w-2xl mx-auto">
-              <Card>
+              <Card className="border-border bg-card">
                 <CardHeader>
-                  <CardTitle>Send us a message</CardTitle>
+                  <MessageSquare className="w-8 h-8 text-primary mb-2" />
+                  <CardTitle>Send Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll respond within 1-2 business days
+                    Fill out the form below and we'll get back to you soon
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

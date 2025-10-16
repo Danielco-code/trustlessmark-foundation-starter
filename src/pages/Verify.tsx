@@ -27,16 +27,15 @@ const Verify = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-20">
+        <section className="bg-background py-20 border-b">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <div className="text-center">
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                Verify a TrustlessMark
+                Check a Certificate
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Independently verify the authenticity of any TrustlessMark credential using 
-                its unique identifier.
+                Scan a code or enter a verification ID.
               </p>
             </div>
           </div>
@@ -45,21 +44,24 @@ const Verify = () => {
         {/* Verification Form */}
         <section className="py-16 bg-background">
           <div className="mx-auto max-w-2xl px-6 lg:px-8">
+            <p className="text-center text-foreground/80 mb-8">
+              Enter a TrustlessMark certificate ID or scan the QR code printed on your product package. You'll receive a live verification result confirming the authenticity, lab issuer, and verification status of that batch.
+            </p>
             <Card>
               <CardHeader>
-                <CardTitle>Enter Credential Information</CardTitle>
+                <CardTitle>Verify Now</CardTitle>
                 <CardDescription>
-                  Paste the credential ID, DID, or verification URL to check its validity
+                  Enter the certificate ID from your product
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleVerify} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="credential-id">Credential ID or DID</Label>
+                    <Label htmlFor="credential-id">TrustlessMark Certificate ID</Label>
                     <Input
                       id="credential-id"
                       type="text"
-                      placeholder="did:ethr:0x... or trustlessmark:..."
+                      placeholder="TM-2025-XXXXXX"
                       value={credentialId}
                       onChange={(e) => setCredentialId(e.target.value)}
                       className="font-mono text-sm"

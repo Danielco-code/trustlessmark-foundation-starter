@@ -1,137 +1,185 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Lock, Database, Code, Link2 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Database, Lock, GitBranch } from "lucide-react";
-
-const techSpecs = [
-  {
-    icon: Lock,
-    title: "Cryptographic Signatures",
-    description: "Uses Ed25519 and secp256k1 elliptic curve signatures for attestation signing and verification.",
-  },
-  {
-    icon: Database,
-    title: "On-Chain Anchoring",
-    description: "Attestations are cryptographically anchored on multiple blockchain networks for immutable verification.",
-  },
-  {
-    icon: Code,
-    title: "JSON-LD Format",
-    description: "Credentials follow W3C Verifiable Credentials data model with standardized JSON-LD schemas.",
-  },
-  {
-    icon: GitBranch,
-    title: "Multi-Chain Support",
-    description: "Compatible with Ethereum, Polygon, Arbitrum, and other EVM-compatible networks.",
-  },
-];
 
 const Technology = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/5 to-background py-20">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Technology
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              TrustlessMark leverages battle-tested cryptographic primitives and open blockchain 
-              infrastructure to enable verifiable, tamper-proof attestations.
+        <section className="py-20 px-4 border-b">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">How Verification Works</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              From laboratory data to public proof.
             </p>
           </div>
         </section>
 
-        {/* Technical Specifications */}
-        <section className="py-16 bg-background">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Technical Specifications</h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {techSpecs.map((spec) => (
-                <Card key={spec.title}>
-                  <CardHeader>
-                    <spec.icon className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle>{spec.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{spec.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        {/* Overview */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-3xl">
+            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
+              Each verified product generates a structured data proof — a JSON‑LD record containing laboratory results, origin metadata, and certification details. This record is hashed and timestamped on the TrustlessMark Ledger. When a consumer scans a code, the verification engine checks the hash against the ledger to confirm authenticity.
+            </p>
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              View Technical Specification
+            </Button>
           </div>
         </section>
 
-        {/* Architecture Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Architecture Overview</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Attestation Lifecycle</h3>
-              <ol className="space-y-3">
-                <li>
-                  <strong className="text-foreground">Issuance:</strong> An accredited issuer creates a verifiable credential 
-                  containing claims about a subject, signs it with their private key.
-                </li>
-                <li>
-                  <strong className="text-foreground">Anchoring:</strong> The credential hash is committed to one or more 
-                  blockchain networks via smart contract.
-                </li>
-                <li>
-                  <strong className="text-foreground">Distribution:</strong> The credential is provided to the holder, who 
-                  can store it in a digital wallet or decentralized storage.
-                </li>
-                <li>
-                  <strong className="text-foreground">Verification:</strong> Any relying party can verify the credential by 
-                  checking the signature and on-chain anchor.
-                </li>
-              </ol>
+        {/* Technical Components */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Technical Architecture</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-6 border-border bg-card">
+                <Lock className="w-10 h-10 mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-3">Cryptographic Signatures</h3>
+                <p className="text-muted-foreground mb-4">
+                  All certification data is signed using EIP-712 structured data signatures, ensuring tamper-proof records.
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                  <li>Secp256k1 elliptic curve cryptography</li>
+                  <li>Ethereum-compatible wallet signatures</li>
+                  <li>Verifiable by anyone with the public key</li>
+                </ul>
+              </Card>
 
-              <h3 className="text-xl font-semibold text-foreground mt-8 mb-3">Security Model</h3>
-              <p className="mb-4">
-                TrustlessMark security relies on public-key cryptography and blockchain immutability. 
-                Each issuer maintains a public DID (Decentralized Identifier) that maps to their verification keys.
-              </p>
-              <p>
-                Credentials are signed with the issuer's private key and can be verified by anyone using the 
-                public key. The on-chain anchor provides a timestamped, tamper-evident record of issuance.
-              </p>
+              <Card className="p-6 border-border bg-card">
+                <Database className="w-10 h-10 mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-3">On-Chain Anchoring</h3>
+                <p className="text-muted-foreground mb-4">
+                  Proof hashes are timestamped on public blockchains for immutable verification history.
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                  <li>Multi-chain support (Ethereum, Polygon, Base)</li>
+                  <li>Merkle tree batching for efficiency</li>
+                  <li>Permanent, decentralized audit trail</li>
+                </ul>
+              </Card>
+
+              <Card className="p-6 border-border bg-card">
+                <Code className="w-10 h-10 mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-3">JSON-LD Data Format</h3>
+                <p className="text-muted-foreground mb-4">
+                  Structured certification data uses JSON-LD for semantic interoperability.
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                  <li>Schema.org vocabulary</li>
+                  <li>Machine-readable and human-readable</li>
+                  <li>Extensible for industry-specific metadata</li>
+                </ul>
+              </Card>
+
+              <Card className="p-6 border-border bg-card">
+                <Link2 className="w-10 h-10 mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-3">Decentralized Identifiers</h3>
+                <p className="text-muted-foreground mb-4">
+                  Laboratories and issuers are identified using W3C DID standard.
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                  <li>Self-sovereign identity management</li>
+                  <li>No central authority required</li>
+                  <li>Cryptographically verifiable credentials</li>
+                </ul>
+              </Card>
             </div>
           </div>
         </section>
 
         {/* Standards Compliance */}
-        <section className="py-16 bg-background">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6">Standards Compliance</h2>
-            <div className="space-y-4">
-              <Card>
-                <CardHeader>
-                  <CardTitle>W3C Verifiable Credentials</CardTitle>
-                  <CardDescription>
-                    Full compatibility with the W3C Verifiable Credentials Data Model 1.1 specification
-                  </CardDescription>
-                </CardHeader>
+        <section className="py-16 px-4 border-t">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Standards Compliance</h2>
+            <div className="space-y-6">
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-lg font-semibold mb-2">W3C Verifiable Credentials</h3>
+                <p className="text-muted-foreground">
+                  Our certification format follows the W3C Verifiable Credentials Data Model for standardized, machine-verifiable claims.
+                </p>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Decentralized Identifiers (DIDs)</CardTitle>
-                  <CardDescription>
-                    Support for did:ethr, did:web, and other DID methods for issuer identification
-                  </CardDescription>
-                </CardHeader>
+
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-lg font-semibold mb-2">Decentralized Identifiers (DIDs)</h3>
+                <p className="text-muted-foreground">
+                  Laboratory and issuer identities use the W3C DID specification for self-sovereign, cryptographically secure identity.
+                </p>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>EIP-712 Typed Signatures</CardTitle>
-                  <CardDescription>
-                    Ethereum structured data signing for enhanced security and user clarity
-                  </CardDescription>
-                </CardHeader>
+
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-lg font-semibold mb-2">EIP-712 Typed Data</h3>
+                <p className="text-muted-foreground">
+                  Ethereum Improvement Proposal 712 ensures human-readable and secure message signing for all certification data.
+                </p>
               </Card>
+
+              <Card className="p-6 border-border bg-card">
+                <h3 className="text-lg font-semibold mb-2">Schema.org Vocabulary</h3>
+                <p className="text-muted-foreground">
+                  Product and certification metadata uses Schema.org standards for maximum interoperability across systems.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Verification Flow */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold text-center mb-12">Verification Workflow</h2>
+            <div className="space-y-6">
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                  1
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Consumer Scans QR Code</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Product packaging includes a TrustlessMark QR code linking to the certificate ID.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                  2
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Verification Engine Retrieves Proof</h3>
+                  <p className="text-sm text-muted-foreground">
+                    The system fetches the JSON-LD proof data and cryptographic signature.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                  3
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Hash Validation</h3>
+                  <p className="text-sm text-muted-foreground">
+                    The proof hash is checked against the timestamp recorded on the TrustlessMark Ledger.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                  4
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Result Display</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Consumer receives verification status, laboratory details, and certification metadata.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
