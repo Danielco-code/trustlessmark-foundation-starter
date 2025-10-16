@@ -11,6 +11,9 @@ const footerNavigation = {
     { name: "Verify", href: "/verify" },
     { name: "Contact", href: "/contact" },
   ],
+  legal: [
+    { name: "Privacy Policy", href: "/privacy" },
+  ],
 };
 
 export const Footer = () => {
@@ -49,6 +52,21 @@ export const Footer = () => {
               <h3 className="text-sm font-semibold leading-6">Resources</h3>
               <ul role="list" className="mt-4 space-y-3">
                 {footerNavigation.resources.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold leading-6">Legal</h3>
+              <ul role="list" className="mt-4 space-y-3">
+                {footerNavigation.legal.map((item) => (
                   <li key={item.name}>
                     <Link
                       to={item.href}

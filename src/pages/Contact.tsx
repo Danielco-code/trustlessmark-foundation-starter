@@ -6,8 +6,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MessageSquare, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import ReCAPTCHA from "react-google-recaptcha";
+import { z } from "zod";
+
+// Form validation schema
+const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  organization: z.string().trim().max(100, "Organization name must be less than 100 characters").optional(),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
 
 const contactInfo = {
   email: "hello@trustlessmark.org",
@@ -20,20 +30,91 @@ const contactInfo = {
 
 const Contact = () => {
   const { toast } = useToast();
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     organization: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Formspree endpoint - replace with your actual Formspree form ID
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  // reCAPTCHA site key - to be provided by user
+  const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", organization: "", message: "" });
+    setErrors({});
+
+    // Validate form data
+    try {
+      contactFormSchema.parse(formData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        toast({
+          title: "Validation Error",
+          description: "Please check the form fields and try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
+    // Verify reCAPTCHA
+    const recaptchaValue = recaptchaRef.current?.getValue();
+    if (!recaptchaValue) {
+      toast({
+        title: "Verification Required",
+        description: "Please complete the reCAPTCHA verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          "g-recaptcha-response": recaptchaValue,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        setFormData({ name: "", email: "", organization: "", message: "" });
+        recaptchaRef.current?.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -105,9 +186,14 @@ const Contact = () => {
                         <Input
                           id="name"
                           required
+                          maxLength={100}
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className={errors.name ? "border-destructive" : ""}
                         />
+                        {errors.name && (
+                          <p className="text-sm text-destructive">{errors.name}</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email *</Label>
@@ -115,18 +201,28 @@ const Contact = () => {
                           id="email"
                           type="email"
                           required
+                          maxLength={255}
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className={errors.email ? "border-destructive" : ""}
                         />
+                        {errors.email && (
+                          <p className="text-sm text-destructive">{errors.email}</p>
+                        )}
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="organization">Organization</Label>
                       <Input
                         id="organization"
+                        maxLength={100}
                         value={formData.organization}
                         onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                        className={errors.organization ? "border-destructive" : ""}
                       />
+                      {errors.organization && (
+                        <p className="text-sm text-destructive">{errors.organization}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="message">Message *</Label>
@@ -134,13 +230,34 @@ const Contact = () => {
                         id="message"
                         required
                         rows={6}
+                        maxLength={2000}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className={errors.message ? "border-destructive" : ""}
+                      />
+                      {errors.message && (
+                        <p className="text-sm text-destructive">{errors.message}</p>
+                      )}
+                    </div>
+                    
+                    {/* reCAPTCHA */}
+                    <div className="flex justify-center">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_SITE_KEY}
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full">
-                      Send Message
+
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
+
+                    <p className="text-xs text-center text-muted-foreground">
+                      By submitting this form, you agree to our{" "}
+                      <a href="/privacy" className="text-primary hover:underline">
+                        Privacy Policy
+                      </a>
+                    </p>
                   </form>
                 </CardContent>
               </Card>
