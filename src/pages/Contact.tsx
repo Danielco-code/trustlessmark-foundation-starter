@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqayjeqk";
 
   // ✅ Replace with your Google reCAPTCHA v2 Site Key
-  const RECAPTCHA_SITE_KEY = 6LfmT-8rAAAAAH5dwyRMK10OkMM2lodTjHiO0_Y0;
+  const RECAPTCHA_SITE_KEY = "6LfmT-8rAAAAAH5dwyRMK10OkMM2lodTjHiO0_Y0";
 
   // ✅ Change this for each campaign
   const CAMPAIGN_ID = "{/* Hidden fields for context */}
