@@ -9,10 +9,7 @@ const Contact: React.FC = () => {
   const RECAPTCHA_SITE_KEY = "6LfmT-8rAAAAAH5dwyRMK10OkMM2lodTjHiO0_Y0";
 
   // ✅ Change this for each campaign
-  const CAMPAIGN_ID = "{/* Hidden fields for context */}
-<input type="hidden" name="campaign" value={CAMPAIGN_ID} />
-<input type="hidden" name="foundation" value="TrustlessMark Foundation" />
-;
+  const CAMPAIGN_ID = "general-inquiry";
 
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
