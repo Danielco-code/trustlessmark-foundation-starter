@@ -18,13 +18,13 @@ const footerNavigation = {
 
 export const Footer = () => {
   return (
-    <footer className="border-t bg-muted/30">
+    <footer className="border-t border-primary/20 bg-muted/30">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-4">
             <span className="text-2xl font-bold text-primary">TrustlessMark</span>
             <p className="text-sm text-muted-foreground max-w-xs">
-              An open standard for decentralized verification and attestation.
+              Public proof for the physical world
             </p>
             <p className="text-sm text-muted-foreground">
               <a href="mailto:hello@trustlessmark.org" className="hover:text-primary transition-colors">
@@ -80,10 +80,28 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8">
-          <p className="text-xs text-muted-foreground text-center">
-            &copy; {new Date().getFullYear()} TrustlessMark Foundation. All rights reserved.
-          </p>
+        <div className="mt-12 border-t border-primary/20 pt-8">
+          <div className="text-center space-y-2">
+            <p className="text-xs text-muted-foreground">
+              &copy; {new Date().getFullYear()} TrustlessMark Foundation
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Open Certification Protocol (OCP-v1)
+            </p>
+            <p className="text-xs text-muted-foreground">
+              <a 
+                href="https://verify.trustlessmark.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Verification Registry → verify.trustlessmark.org
+              </a>
+            </p>
+            <p className="text-xs text-muted-foreground opacity-70">
+              Hosted via Cloudflare Pages
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -57,10 +57,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="max-w-2xl mx-auto p-8 bg-white rounded-2xl shadow-lg">
-      <h2 className="text-3xl font-bold mb-4 text-center">Send Message</h2>
-      <p className="text-gray-600 mb-8 text-center">
-        Fill out the form below and we'll get back to you soon.
+    <section className="max-w-2xl mx-auto p-8 bg-card rounded-2xl shadow-lg border">
+      <h2 className="text-3xl font-bold mb-4 text-center">Talk to us.</h2>
+      <p className="text-muted-foreground mb-8 text-center">
+        Labs, auditors, buyers, retailers, journalists, and compliance teams — if you need to prove a physical-world claim belongs in the public record, this is where you start.
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">

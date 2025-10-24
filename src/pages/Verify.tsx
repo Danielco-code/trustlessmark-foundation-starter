@@ -27,119 +27,83 @@ const Verify = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-background py-20 border-b">
+        <section className="bg-background py-20 border-b animate-fade-in">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <div className="text-center">
               <Shield className="h-16 w-16 text-primary mx-auto mb-6" />
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                Check a Certificate
+                How to verify a claim
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Scan a code or enter a verification ID.
+                Check any TrustlessMark product claim yourself
               </p>
             </div>
           </div>
         </section>
 
-        {/* Verification Form */}
+        {/* Instructions */}
         <section className="py-16 bg-background">
-          <div className="mx-auto max-w-2xl px-6 lg:px-8">
-            <p className="text-center text-foreground/80 mb-8">
-              Enter a TrustlessMark certificate ID or scan the QR code printed on your product package. You'll receive a live verification result confirming the authenticity, lab issuer, and verification status of that batch.
-            </p>
-            <Card>
-              <CardHeader>
-                <CardTitle>Verify Now</CardTitle>
-                <CardDescription>
-                  Enter the certificate ID from your product
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleVerify} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="credential-id">TrustlessMark Certificate ID</Label>
-                    <Input
-                      id="credential-id"
-                      type="text"
-                      placeholder="TM-2025-XXXXXX"
-                      value={credentialId}
-                      onChange={(e) => setCredentialId(e.target.value)}
-                      className="font-mono text-sm"
-                    />
-                  </div>
-                  <Button type="submit" className="w-full" size="lg">
-                    <Search className="mr-2 h-5 w-5" />
-                    Verify Credential
-                  </Button>
-                </form>
-
-                {verificationResult === "success" && (
-                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <Shield className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
-                      <div>
-                        <h3 className="font-semibold text-green-900 dark:text-green-100">Valid Credential</h3>
-                        <p className="text-sm text-green-700 dark:text-green-300 mt-1">
-                          This credential was issued by an accredited TrustlessMark issuer and has been 
-                          cryptographically verified on-chain.
-                        </p>
-                        <div className="mt-3 text-sm text-green-700 dark:text-green-300">
-                          <p><strong>Issuer:</strong> Example Organization (did:ethr:0x1234...)</p>
-                          <p><strong>Issued:</strong> January 15, 2025</p>
-                          <p><strong>Status:</strong> Active</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {verificationResult === "error" && (
-                  <div className="mt-6 p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5" />
-                      <div>
-                        <h3 className="font-semibold text-red-900 dark:text-red-100">Verification Failed</h3>
-                        <p className="text-sm text-red-700 dark:text-red-300 mt-1">
-                          This credential could not be verified. It may be invalid, revoked, or not yet 
-                          registered on the network.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* How Verification Works */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">How Verification Works</h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="mb-4">
-                TrustlessMark verification is a multi-step cryptographic process that ensures the 
-                authenticity and integrity of credentials:
-              </p>
-              <ol className="space-y-3">
-                <li>
-                  <strong className="text-foreground">Signature Verification:</strong> The credential's 
-                  digital signature is validated against the issuer's public key.
+          <div className="mx-auto max-w-3xl px-6 lg:px-8">
+            <Card className="p-8 border-l-4 border-l-primary mb-8">
+              <h2 className="text-2xl font-bold mb-6">Verification Steps</h2>
+              <ol className="space-y-4 text-foreground/80">
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">1.</span>
+                  <span>Pick a product-level claim (for example: 'Low PUFA Eggs').</span>
                 </li>
-                <li>
-                  <strong className="text-foreground">On-Chain Anchor Check:</strong> The credential hash 
-                  is verified against the blockchain record to confirm it hasn't been tampered with.
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">2.</span>
+                  <div>
+                    Open the proof URL for that claim. Example:{" "}
+                    <a 
+                      href="https://verify.trustlessmark.org/food/certifications/low-pufa-eggs.json" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline break-all"
+                    >
+                      https://verify.trustlessmark.org/food/certifications/low-pufa-eggs.json
+                    </a>
+                  </div>
                 </li>
-                <li>
-                  <strong className="text-foreground">Issuer Status:</strong> The issuer's accreditation 
-                  status is checked in the TrustlessMark registry.
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">3.</span>
+                  <span>Check the issuer. Who ran the test or audit?</span>
                 </li>
-                <li>
-                  <strong className="text-foreground">Revocation Check:</strong> The credential is verified 
-                  against revocation lists to ensure it's still valid.
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">4.</span>
+                  <span>Check the method. Was it a lab method, an audit, a sourcing record?</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">5.</span>
+                  <span>Check the .sig. This is the TrustlessMark Foundation signature.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="font-bold text-primary">6.</span>
+                  <span>Check the timestamp. Old claims expire annually.</span>
                 </li>
               </ol>
+            </Card>
+
+            <Card className="p-8 bg-surface">
+              <h3 className="text-xl font-semibold mb-4">Quick test from terminal</h3>
+              <pre className="bg-card p-4 rounded-lg overflow-x-auto text-sm border">
+{`curl -I https://verify.trustlessmark.org/food/certifications/low-pufa-eggs.json
+curl https://verify.trustlessmark.org/food/certifications/low-pufa-eggs.json | jq .`}
+              </pre>
+            </Card>
+
+            <div className="mt-8 text-center">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <a href="https://verify.trustlessmark.org/" target="_blank" rel="noopener noreferrer">
+                  Open the Registry
+                </a>
+              </Button>
             </div>
+
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              Anyone in the world can do this.<br />
+              No NDAs. No logins. No API keys. Public truth should be public.
+            </p>
           </div>
         </section>
       </main>

@@ -11,24 +11,61 @@ const About = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 px-4 border-b">
+        <section className="py-20 px-4 border-b animate-fade-in">
           <div className="container mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Who We Are</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Who we are</h1>
             <p className="text-xl text-muted-foreground mb-8">
-              An independent standards body for verifiable transparency.
+              TrustlessMark Foundation makes claims checkable.
             </p>
           </div>
         </section>
 
-        {/* Mission Section */}
+        {/* Who We Are */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-3xl">
-            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
-              The TrustlessMark Foundation is a nonprofit organization that maintains the TrustlessMark Protocol — an open standard for cryptographically verifiable certification data. Founded in 2025, it emerged from the Open Coffee Proof project and now spans food, beverage, and consumer goods industries. The Foundation operates with multi‑stakeholder governance, representing laboratories, retailers, and academic experts.
+            <Card className="p-8 border-l-4 border-l-primary">
+              <h2 className="text-2xl font-bold mb-4">Who we are</h2>
+              <p className="text-lg leading-relaxed text-foreground/80 mb-4">
+                TrustlessMark Foundation is an independent standards initiative.
+                We publish signed proofs of physical-world claims — from 'USDA Organic' to 'PFAS-Free Fabric' to 'Low PUFA Eggs.'
+                Our goal is simple: eliminate unverifiable marketing fluff.
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        {/* Why Now */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold mb-4">Why now</h2>
+            <p className="text-lg leading-relaxed text-foreground/80">
+              We're watching shoppers demand radical honesty.
+              We're watching retailers demand supplier proof.
+              We're watching regulators ask for traceability.
+              And we're watching AI systems scrape claims and repeat them as fact.
+              We believe claimed reality should match physical reality — and be publicly checkable.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Download the Charter
-            </Button>
+          </div>
+        </section>
+
+        {/* How We Operate */}
+        <section className="py-16 px-4 border-t">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold mb-4">How we operate</h2>
+            <p className="text-lg leading-relaxed text-foreground/80 mb-6">
+              We maintain open JSON schemas for each category — coffee, food, textiles.
+              We cryptographically sign and timestamp submitted claims.
+              We publish them to a public registry at verify.trustlessmark.org.
+              We don't sell 'trust.' We make proof public.
+            </p>
+            <Card className="p-6 bg-cream border-l-4 border-l-primary">
+              <h3 className="text-xl font-semibold mb-3">Governance</h3>
+              <p className="text-foreground/80">
+                Published under the Open Certification Protocol (OCP-v1).
+                Annual renewal of proofs prevents stale or abandoned claims.
+                Change control is logged and auditable.
+              </p>
+            </Card>
           </div>
         </section>
 

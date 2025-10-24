@@ -11,71 +11,65 @@ const Resources = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 px-4 border-b">
+        <section className="py-20 px-4 border-b animate-fade-in">
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Publications and Updates
+              Resources
             </h1>
             <p className="text-xl text-muted-foreground">
-              Technical specs, press releases, and adoption reports.
+              Documentation, schemas, and developer tools
             </p>
           </div>
         </section>
 
-        {/* Overview */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-3xl">
-            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
-              Access the TrustlessMark Charter, Executive Summary, Press Releases, and annual transparency reports. All documents are available in PDF format for open reference.
-            </p>
-          </div>
-        </section>
-
-        {/* Documentation */}
+        {/* Foundation Documents */}
         <section className="py-16 px-4 bg-surface border-t">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-12 text-center">Available Documents</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-border bg-card">
+            <h2 className="text-3xl font-bold mb-6">Foundation Documents</h2>
+            <p className="text-foreground/80 mb-8">
+              Key documents describing the TrustlessMark Foundation's mission, governance, and technical architecture.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
                   <FileText className="w-10 h-10 mb-4 text-primary" />
-                  <CardTitle>Foundation Charter</CardTitle>
+                  <CardTitle>TrustlessMark Proof Deployment Dossier</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="mb-4">
-                    The governing document of the TrustlessMark Foundation, including mission, governance structure, and operating principles.
+                    FCC Certification Framework v1
                   </CardDescription>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" disabled>
                     Download PDF
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <Book className="w-10 h-10 mb-4 text-primary" />
-                  <CardTitle>Executive Summary</CardTitle>
+                  <FileText className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>Cloudflare Deployment Checklist</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="mb-4">
-                    A concise overview of TrustlessMark for stakeholders, media, and potential partners.
+                    Version 1 deployment guide
                   </CardDescription>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" disabled>
                     Download PDF
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <Code className="w-10 h-10 mb-4 text-primary" />
-                  <CardTitle>Technical Specification</CardTitle>
+                  <FileText className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>Quick Reference Sheet</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="mb-4">
-                    Complete technical documentation of the TrustlessMark Protocol and implementation guidelines.
+                    Essential information at a glance
                   </CardDescription>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" disabled>
                     Download PDF
                   </Button>
                 </CardContent>
@@ -84,55 +78,46 @@ const Resources = () => {
           </div>
         </section>
 
-        {/* Use Cases */}
+        {/* Schemas */}
         <section className="py-16 px-4 border-t">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-6 text-center">Industry Use Cases</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              TrustlessMark is being adopted across diverse product categories
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-bold mb-6">Schemas</h2>
+            <p className="text-foreground/80 mb-8">
+              OCP-Food v1 defines how to represent food claims like 'Low PUFA Eggs', 'Glyphosate-Free', 'Regenerative Farming'.
+              OCP-Textile v1 defines how to represent textile claims like 'PFAS-Free Fabric', 'Organic Cotton Certified', and 'Recycled Material %'.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-lg">Specialty Coffee</CardTitle>
+                  <Code className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>OCP-Food v1 Schema</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>
-                    Laboratory verification of origin, processing method, and chemical composition for premium coffee products.
+                  <CardDescription className="mb-4">
+                    JSON schema for food and agricultural claims
                   </CardDescription>
+                  <Button asChild variant="outline" size="sm">
+                    <a href="https://verify.trustlessmark.org/schemas/food/ocp-food-v1.json" target="_blank" rel="noopener noreferrer">
+                      View Schema
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
 
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="text-lg">Natural Supplements</CardTitle>
+                  <Code className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>OCP-Textile v1 Schema</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>
-                    Third-party testing and certification of ingredient purity, potency, and absence of contaminants.
+                  <CardDescription className="mb-4">
+                    JSON schema for textile and fabric claims
                   </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border bg-card">
-                <CardHeader>
-                  <CardTitle className="text-lg">Organic Foods</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Verification of organic certification claims and pesticide residue testing results.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border bg-card">
-                <CardHeader>
-                  <CardTitle className="text-lg">Ethical Textiles</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Supply chain transparency and labor practice verification for apparel manufacturers.
-                  </CardDescription>
+                  <Button asChild variant="outline" size="sm">
+                    <a href="https://verify.trustlessmark.org/schemas/textile/ocp-textile-v1.json" target="_blank" rel="noopener noreferrer">
+                      View Schema
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -142,44 +127,61 @@ const Resources = () => {
         {/* Developer Resources */}
         <section className="py-16 px-4 bg-surface border-t">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold mb-6 text-center">Developer Resources</h2>
-            <div className="space-y-6">
-              <Card className="border-border bg-card">
+            <h2 className="text-3xl font-bold mb-6">For Developers</h2>
+            <Card className="p-6 bg-card mb-6">
+              <h3 className="text-lg font-semibold mb-4">Quick Start</h3>
+              <pre className="bg-background p-4 rounded-lg overflow-x-auto text-sm border">
+{`# Discover registry endpoints
+curl https://verify.trustlessmark.org/.well-known/ocp.json | jq .
+
+# Fetch a claim
+curl https://verify.trustlessmark.org/textiles/certifications/pfas-free-fabric.json`}
+              </pre>
+            </Card>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <CardTitle>GitHub Repository</CardTitle>
-                  <CardDescription>
-                    Open-source reference implementations, SDKs, and code examples
-                  </CardDescription>
+                  <Code className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>GitHub</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline">
-                    <Code className="mr-2 h-4 w-4" />
-                    View on GitHub
+                  <CardDescription className="mb-4">
+                    Open-source code and examples
+                  </CardDescription>
+                  <Button variant="outline" size="sm" disabled>
+                    View Repository
                   </Button>
                 </CardContent>
               </Card>
-              
-              <Card className="border-border bg-card">
+
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <CardTitle>Developer Community</CardTitle>
-                  <CardDescription>
-                    Join discussions, get support, and collaborate with other implementers
-                  </CardDescription>
+                  <Code className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>Discord</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline">Join Discord</Button>
+                  <CardDescription className="mb-4">
+                    Developer community
+                  </CardDescription>
+                  <Button variant="outline" size="sm" disabled>
+                    Join Discord
+                  </Button>
                 </CardContent>
               </Card>
 
-              <Card className="border-border bg-card">
+              <Card className="border-border bg-card hover:shadow-lg transition-all duration-300">
                 <CardHeader>
-                  <CardTitle>Testnet Environment</CardTitle>
-                  <CardDescription>
-                    Sandbox environment for testing integrations before production deployment
-                  </CardDescription>
+                  <Code className="w-10 h-10 mb-4 text-primary" />
+                  <CardTitle>Testnet</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline">Access Testnet</Button>
+                  <CardDescription className="mb-4">
+                    Sandbox environment
+                  </CardDescription>
+                  <Button variant="outline" size="sm" disabled>
+                    Access Testnet
+                  </Button>
                 </CardContent>
               </Card>
             </div>

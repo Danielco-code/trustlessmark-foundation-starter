@@ -12,112 +12,71 @@ const Home = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 px-4 text-center border-b">
+        <section className="py-20 px-4 text-center border-b animate-fade-in">
           <div className="container mx-auto max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              Verifiable Integrity for Honest Products.
+              Public proof for the physical world.
             </h1>
-            <p className="text-2xl text-muted-foreground mb-8">
-              Every claim should be provable.
-            </p>
-            <p className="text-lg text-foreground/80 mb-10 leading-relaxed max-w-3xl mx-auto">
-              TrustlessMark is an independent global framework for proving product authenticity, purity, and ethical sourcing. Every verified product carries a digital signature linking it to laboratory‑tested data stored on the TrustlessMark ledger. Our mission is simple: make truth measurable.
+            <p className="text-xl text-foreground/80 mb-10 leading-relaxed max-w-3xl mx-auto">
+              TrustlessMark is an open verification protocol for honest product claims.
+              We publish cryptographically signed proof files — like 'USDA Organic,' 'Low PUFA Eggs,' or 'PFAS-Free Fabric' — so anyone can verify them instantly.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link to="/about">Read the Charter</Link>
+                <a href="https://verify.trustlessmark.org/" target="_blank" rel="noopener noreferrer">
+                  Explore the Live Registry
+                </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/contact">Join the Foundation</Link>
+                <a href="#how-it-works">How It Works</a>
               </Button>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-20 px-4 bg-surface">
+        {/* How It Works Section */}
+        <section id="how-it-works" className="py-20 px-4 bg-surface">
           <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-12">How it works</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="p-8 text-center border-border bg-card">
-                <Shield className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-xl font-semibold mb-3">Laboratory Verified</h3>
+              <Card className="p-8 text-center border-l-4 border-l-primary hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">🧪</div>
+                <h3 className="text-xl font-semibold mb-3">Lab Result / Certification</h3>
                 <p className="text-muted-foreground">
-                  Every certification is backed by independent laboratory testing and analysis.
+                  A lab, auditor, or certification body issues a claim, like 'Glyphosate-Free' or 'Texas Veteran-Owned Business.'
                 </p>
               </Card>
 
-              <Card className="p-8 text-center border-border bg-card">
-                <Database className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-xl font-semibold mb-3">Cryptographically Secured</h3>
+              <Card className="p-8 text-center border-l-4 border-l-primary hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">🔐</div>
+                <h3 className="text-xl font-semibold mb-3">Cryptographic Proof</h3>
                 <p className="text-muted-foreground">
-                  Data proofs are hashed and timestamped on the TrustlessMark Ledger for immutable verification.
+                  That claim becomes a signed .json + .sig pair under the TrustlessMark Open Certification Protocol (OCP-v1).
                 </p>
               </Card>
 
-              <Card className="p-8 text-center border-border bg-card">
-                <CheckCircle className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-xl font-semibold mb-3">Publicly Verifiable</h3>
+              <Card className="p-8 text-center border-l-4 border-l-primary hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="text-4xl mb-4">🔍</div>
+                <h3 className="text-xl font-semibold mb-3">Public Registry</h3>
                 <p className="text-muted-foreground">
-                  Consumers can verify any product claim instantly using simple QR codes.
+                  We host those proof files at verify.trustlessmark.org, where anyone — customers, buyers, inspectors, search engines — can inspect them.
                 </p>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="py-20 px-4 border-t">
+        {/* Why This Matters */}
+        <section className="py-16 px-4 border-t">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-            <div className="space-y-8">
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Laboratory Testing</h3>
-                  <p className="text-muted-foreground">
-                    Accredited laboratories test products for purity, authenticity, and quality metrics.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Digital Proof Creation</h3>
-                  <p className="text-muted-foreground">
-                    Test results are converted into structured JSON-LD records and cryptographically signed.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Ledger Anchoring</h3>
-                  <p className="text-muted-foreground">
-                    Proof hashes are timestamped on the TrustlessMark Ledger for permanent verification.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Consumer Verification</h3>
-                  <p className="text-muted-foreground">
-                    Anyone can verify product claims by scanning QR codes or entering certificate IDs.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <Card className="p-8 bg-cream border-l-4 border-l-primary">
+              <h3 className="text-2xl font-bold mb-4">Why this matters</h3>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Consumers shouldn't have to 'just trust the label.'
+                Retail buyers shouldn't have to guess.
+                TrustlessMark makes claims checkable — instantly, by anyone — without calling the brand first.
+              </p>
+            </Card>
           </div>
         </section>
 
@@ -125,16 +84,13 @@ const Home = () => {
         <section className="py-20 px-4 bg-surface border-t">
           <div className="container mx-auto max-w-3xl text-center">
             <FileCheck className="w-16 h-16 mx-auto mb-6 text-primary" />
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl font-bold mb-4">Want your claims published?</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join laboratories, retailers, and verification partners in the TrustlessMark network.
+              If you're a lab, roaster, farm co-op, apparel brand, or regenerative producer, we'll help you issue verifiable claims in under an hour.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link to="/accreditation">Apply for Accreditation</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/verify">Verify a Product</Link>
               </Button>
             </div>
           </div>
