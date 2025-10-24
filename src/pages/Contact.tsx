@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const Contact: React.FC = () => {
   // ✅ Formspree endpoint
@@ -57,7 +59,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="max-w-2xl mx-auto p-8 bg-card rounded-2xl shadow-lg border">
+    <>
+      <Header />
+      <main className="min-h-screen bg-gradient-to-b from-background to-surface py-20">
+        <section className="max-w-2xl mx-auto p-8 bg-card rounded-2xl shadow-lg border">
       <h2 className="text-3xl font-bold mb-4 text-center">Talk to us.</h2>
       <p className="text-muted-foreground mb-8 text-center">
         Labs, auditors, buyers, retailers, journalists, and compliance teams — if you need to prove a physical-world claim belongs in the public record, this is where you start.
@@ -139,7 +144,10 @@ const Contact: React.FC = () => {
       <p className="text-sm text-muted-foreground mt-6 text-center border-t pt-4">
         By submitting this form you're contacting the TrustlessMark Foundation. We review all inbound certifications for integrity, repeatability, and traceable methods.
       </p>
-    </section>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 };
 
