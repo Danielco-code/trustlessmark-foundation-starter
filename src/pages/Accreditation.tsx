@@ -43,13 +43,13 @@ const Accreditation = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-background py-20 border-b">
+        <section className="bg-background py-20 border-b animate-fade-in">
           <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Join the TrustlessMark Network
+              Become an accredited issuer
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              For laboratories, retailers, and verification partners.
+              For labs, auditors, certifiers, and qualified brands.
             </p>
           </div>
         </section>
@@ -57,21 +57,49 @@ const Accreditation = () => {
         {/* Overview */}
         <section className="py-16 bg-background">
           <div className="mx-auto max-w-3xl px-6 lg:px-8">
-            <p className="text-lg leading-relaxed text-foreground/80 mb-8">
-              Accredited Members are organizations authorized to issue or host TrustlessMark proofs. The Foundation accredits independent laboratories, auditing firms, and digital commerce platforms that meet our verification and data integrity standards.
-            </p>
+            <div className="border-l-4 border-l-primary pl-6 mb-8">
+              <p className="text-lg leading-relaxed text-foreground/80 mb-4">
+                We work with labs, auditors, certifiers, and qualified brands to publish verifiable claims into the TrustlessMark registry.
+              </p>
+            </div>
+            <Card>
+              <CardContent className="pt-6">
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Food labs offering nutrient density and PUFA testing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Textile labs offering PFAS-free / organic cotton verification</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Coffee roasters documenting USDA Organic / Fair Trade / Rainforest Alliance</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Regenerative / soil-carbon audits</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Ownership / identity proofs (e.g. Texas Veteran-Owned Business)</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
         {/* Requirements */}
-        <section className="py-16 bg-surface border-t">
+        <section className="py-16 bg-cream border-t">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">Accreditation Requirements</h2>
-            <Card>
+            <h2 className="text-3xl font-bold mb-6 text-center">Requirements</h2>
+            <Card className="border-l-4 border-l-primary">
               <CardHeader>
-                <CardTitle>Eligibility Criteria</CardTitle>
+                <CardTitle>Eligibility</CardTitle>
                 <CardDescription>
-                  Organizations must meet the following requirements to become accredited issuers:
+                  Organizations must meet the following to become accredited issuers:
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -94,7 +122,7 @@ const Accreditation = () => {
             <h2 className="text-3xl font-bold mb-12 text-center">The Process</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {process.map((item) => (
-                <Card key={item.step}>
+                <Card key={item.step} className="hover-scale transition-all hover:shadow-lg hover:border-primary/30">
                   <CardHeader>
                     <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                       <span className="text-xl font-bold text-primary">{item.step}</span>
@@ -107,18 +135,23 @@ const Accreditation = () => {
                 </Card>
               ))}
             </div>
+            <div className="mt-12 text-center">
+              <p className="text-muted-foreground mb-4">
+                We are building a public standard. We take accuracy seriously and we're here to help you ship real proof, not marketing spin.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* CTA */}
         <section className="py-16 bg-primary text-primary-foreground">
           <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Apply?</h2>
+            <h2 className="text-3xl font-bold mb-4">Request Accreditation Packet</h2>
             <p className="text-lg mb-8 opacity-90">
-              Start your accreditation application today
+              Get started with TrustlessMark verification
             </p>
             <Button asChild size="lg" variant="secondary">
-              <Link to="/contact">Contact Us to Apply</Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </section>
