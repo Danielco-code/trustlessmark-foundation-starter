@@ -135,6 +135,10 @@ const Contact: React.FC = () => {
           ⚠️ There was an error sending your message. Please try again.
         </p>
       )}
+
+      <p className="text-sm text-muted-foreground mt-6 text-center border-t pt-4">
+        By submitting this form you're contacting the TrustlessMark Foundation. We review all inbound certifications for integrity, repeatability, and traceable methods.
+      </p>
     </section>
   );
 };
