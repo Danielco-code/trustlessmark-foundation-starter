@@ -1,0 +1,24 @@
+{
+  "$schema": "https://verify.trustlessmark.org/verify/schema/verification.schema.json",
+  "id": "tmrk-fcc-pfasfree-2025-001",
+  "claim_type": "PFAS-Free",
+  "entity": {
+    "name": "Flying Circus Coffee",
+    "brand": "Flying Circus Coffee",
+    "url": "https://flyingcircuscoffee.com"
+  },
+  "verifier": {
+    "organization": "Eurofins Analytical Laboratories",
+    "method": "PFAS panel by LC/MS/MS per EPA 533",
+    "certificate_url": "https://verify.trustlessmark.org/verify/fcc/pfas-free-cert.pdf",
+    "date_verified": "2025-10-15"
+  },
+  "proof": {
+    "manifest_url": "https://verify.trustlessmark.org/verify/fcc/pfas-free-manifest.json",
+    "signature_url": "https://verify.trustlessmark.org/verify/fcc/pfas-free.sig",
+    "hash_algorithm": "SHA3-256",
+    "signature": "0x72af3b1a8a...e941d3"
+  },
+  "canonical_domain": "trustlessmark.org",
+  "version": "1.0.0"
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verify.trustlessmark.org/verify/schema/verification.schema.json",
+  "title": "TrustlessMark Verification Record",
+  "description": "Schema describing a verifiable TrustlessMark proof record.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique TrustlessMark identifier (UUID or hash)."
+    },
+    "claim_type": {
+      "type": "string",
+      "description": "Type of verification claim (PFAS-Free, Organic, Fair Trade, etc.)."
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["name", "brand"]
+    },
+    "verifier": {
+      "type": "object",
+      "properties": {
+        "organization": { "type": "string" },
+        "method": { "type": "string" },
+        "certificate_url": { "type": "string", "format": "uri" },
+        "date_verified": { "type": "string", "format": "date" }
+      },
+      "required": ["organization", "date_verified"]
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "manifest_url": { "type": "string", "format": "uri" },
+        "signature_url": { "type": "string", "format": "uri" },
+        "hash_algorithm": { "type": "string" },
+        "signature": { "type": "string" }
+      },
+      "required": ["manifest_url", "signature"]
+    },
+    "canonical_domain": {
+      "type": "string",
+      "description": "Canonical verification domain (.org recommended)."
+    },
+    "version": {
+      "type": "string",
+      "description": "Schema or protocol version."
+    }
+  },
+  "required": ["id", "claim_type", "entity", "verifier", "proof", "canonical_domain", "version"]
+}
