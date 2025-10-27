@@ -1,0 +1,34 @@
+{
+  "$schema": "https://verify.trustlessmark.org/verify/schema/verification.schema.json",
+  "canonical_domain": "trustlessmark.org",
+  "organization": {
+    "name": "TrustlessMark Foundation",
+    "url": "https://trustlessmark.org",
+    "description": "A public registry for verifiable product certifications and transparency proofs."
+  },
+  "entities": [
+    {
+      "code": "fcc",
+      "name": "FCC",
+      "categories": [
+        {
+          "type": "pfas-free.json",
+          "products": [
+            {
+              "code": "Flying Circus Coffee",
+              "claim_type": "PFAS-Free",
+              "latest_lot": null,
+              "verification_url": "https://verify.trustlessmark.org/verify/fcc/pfas-free.json",
+              "integrity": {
+                "algorithm": "SHA3-256",
+                "hash": "14c27e4e6fc9998a9df7e737dd618c3eb8fe1b91ccef802e60a79675a6d10544"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "last_updated": "2025-10-27"
+}
