@@ -1,0 +1,42 @@
+name: Verify and Build TrustlessMark
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧭 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧩 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔄 Update discovery registry
+        run: npm run update-discovery
+
+      - name: 🔍 Verify integrity
+        run: npm run verify-integrity
+
+      - name: 🚀 Build site
+        run: npm run build
+
+      # Optional Cloudflare deploy stage (see Part 3)
+      # - name: ☁️ Deploy to Cloudflare Pages
+      #   if: success()
+      #   uses: cloudflare/pages-action@v1
+      #   with:
+      #     apiToken: ${{ secrets.CF_API_TOKEN }}
+      #     accountId: ${{ secrets.CF_ACCOUNT_ID }}
+      #     projectName: trustlessmark
+      #     directory: dist
