@@ -11,6 +11,7 @@ import Verify from "./pages/Verify";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
+import Explorer from "@/pages/Explorer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,7 +31,7 @@ const App = () => (
           <Route path="/resources" element={<Resources />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/explorer" element={<Explorer />} />   
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

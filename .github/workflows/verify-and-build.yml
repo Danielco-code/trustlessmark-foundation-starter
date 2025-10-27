@@ -40,3 +40,44 @@ jobs:
       #     accountId: ${{ secrets.CF_ACCOUNT_ID }}
       #     projectName: trustlessmark
       #     directory: dist
+
+  post-deploy-audit:
+    name: 🔍 Post-Deploy Integrity Audit
+    needs: verify-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: 🧭 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧩 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔎 Run audit script
+        id: audit
+        run: |
+          node scripts/audit-live.js > audit_output.txt 2>&1 || true
+          echo "audit_result<<EOF" >> $GITHUB_ENV
+          tail -n 15 audit_output.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: 💬 Comment audit summary on PR/Commit
+        uses: peter-evans/create-or-update-comment@v4
+        if: always()
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🧩 **TrustlessMark Post-Deploy Audit**
+
+            ${{ env.audit_result }}
+
+            _Triggered by: `${{ github.sha }}`_
