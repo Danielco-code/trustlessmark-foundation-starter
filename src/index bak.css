@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------------------------------------------------------
-   TRUSTLESSMARK THEME VARIABLES (from index bak.css)
-   This defines all colors, gradients, fonts, etc.
-   --------------------------------------------------------- */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
@@ -57,23 +56,32 @@
   .dark {
     --background: 0 0% 10%;
     --foreground: 0 0% 95%;
+
     --card: 0 0% 12%;
     --card-foreground: 0 0% 95%;
+
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
+
     --primary: 29 85% 55%;
     --primary-foreground: 0 0% 100%;
+
     --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 95%;
+
     --muted: 0 0% 18%;
     --muted-foreground: 0 0% 65%;
+
     --accent: 29 85% 55%;
     --accent-foreground: 0 0% 100%;
+
     --destructive: 0 63% 50%;
     --destructive-foreground: 0 0% 100%;
+
     --border: 0 0% 22%;
     --input: 0 0% 22%;
     --ring: 29 85% 55%;
+    
     --copper: 29 85% 55%;
     --copper-dark: 29 85% 45%;
     --copper-light: 29 85% 65%;
@@ -92,22 +100,13 @@
   }
 }
 
-/* ---------------------------------------------------------
-   BASE LAYER FIX
-   Tailwind doesn’t know what border-border is by default.
-   Define it here based on our custom --border variable.
-   --------------------------------------------------------- */
-
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground font-sans;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 }
-
-

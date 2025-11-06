@@ -1,0 +1,133 @@
+{
+  "$schema": "https://verify.trustlessmark.org/verify/schema/industry-mapping.schema.json",
+  "canonical_domain": "trustlessmark.org",
+  "organization": {
+    "name": "TrustlessMark Foundation",
+    "url": "https://trustlessmark.org",
+    "description": "A decentralized registry for verifiable product certifications and transparency proofs."
+  },
+  "source": {
+    "partner": "Eurofins Scientific",
+    "founded": 1987,
+    "origin_story": "Eurofins began by authenticating wines using isotope ratio testing to detect sugar enrichment, pioneering scientific verification of origin.",
+    "method_count": 200000,
+    "method_source": "Eurofins Analytical Method ID"
+  },
+  "industries": [
+    {
+      "id": "food-beverage",
+      "name": "Food & Beverage",
+      "eurofins_focus": "PFAS, pesticides, authenticity, microbiology",
+      "trustlessmark_class": ["PFAS-Free", "Organic Certified", "Origin Verified"],
+      "example_proof": "/verify/fcc/pfas-free.json"
+    },
+    {
+      "id": "agriculture",
+      "name": "Agriculture & Crop Science",
+      "eurofins_focus": "Soil, fertilizer, GMO and seed purity",
+      "trustlessmark_class": ["Non-GMO", "Soil Integrity", "Regenerative Farming"],
+      "example_proof": "/verify/farms/non-gmo.json"
+    },
+    {
+      "id": "pharma",
+      "name": "Pharmaceuticals",
+      "eurofins_focus": "Active ingredient purity, stability, trace metals",
+      "trustlessmark_class": ["Pharma-Grade Purity", "GMP-Compliant"],
+      "example_proof": "/verify/pharma/gmp-certified.json"
+    },
+    {
+      "id": "clinical",
+      "name": "Clinical Diagnostics",
+      "eurofins_focus": "DNA sequencing, pathogen ID, clinical sample validation",
+      "trustlessmark_class": ["Human Sample Verified", "Chain-of-Custody Proof"],
+      "example_proof": "/verify/labs/sample-integrity.json"
+    },
+    {
+      "id": "environmental",
+      "name": "Environmental Testing",
+      "eurofins_focus": "Air, water and soil contaminants including PFAS and heavy metals",
+      "trustlessmark_class": ["Pollutant-Free", "Sustainably Processed"],
+      "example_proof": "/verify/env/pfas-panel.json"
+    },
+    {
+      "id": "cosmetics",
+      "name": "Cosmetics & Personal Care",
+      "eurofins_focus": "Stability, microbial contamination, allergens",
+      "trustlessmark_class": ["Hypoallergenic", "Cruelty-Free", "Toxin-Free"],
+      "example_proof": "/verify/cosmetics/toxin-free.json"
+    },
+    {
+      "id": "nutraceuticals",
+      "name": "Supplements & Nutraceuticals",
+      "eurofins_focus": "Potency, purity, label accuracy, adulteration",
+      "trustlessmark_class": ["Clinically Tested", "Label Accuracy"],
+      "example_proof": "/verify/nutra/label-proof.json"
+    },
+    {
+      "id": "veterinary",
+      "name": "Veterinary & Animal Health",
+      "eurofins_focus": "Feed composition, zoonotic pathogen detection",
+      "trustlessmark_class": ["FeedSafe", "Antibiotic-Free"],
+      "example_proof": "/verify/vet/antibiotic-free.json"
+    },
+    {
+      "id": "consumer",
+      "name": "Consumer Products",
+      "eurofins_focus": "VOC emissions, migration, safety compliance",
+      "trustlessmark_class": ["Non-Toxic", "Child-Safe", "Zero-VOC"],
+      "example_proof": "/verify/consumer/non-toxic.json"
+    },
+    {
+      "id": "medical-devices",
+      "name": "Medical Devices",
+      "eurofins_focus": "Biocompatibility, sterilization, ISO compliance",
+      "trustlessmark_class": ["ISO 10993 Tested", "Sterile Integrity"],
+      "example_proof": "/verify/devices/sterile-proof.json"
+    },
+    {
+      "id": "packaging",
+      "name": "Packaging Materials",
+      "eurofins_focus": "Food contact migration, PFAS in films",
+      "trustlessmark_class": ["Food-Safe", "PFAS-Free Packaging"],
+      "example_proof": "/verify/packaging/pfas-free.json"
+    },
+    {
+      "id": "tobacco",
+      "name": "Tobacco & E-Cigarettes",
+      "eurofins_focus": "Nicotine content, emissions testing",
+      "trustlessmark_class": ["Regulated Emissions", "Label Match"],
+      "example_proof": "/verify/tobacco/regulated.json"
+    },
+    {
+      "id": "energy",
+      "name": "Energy & Biofuels",
+      "eurofins_focus": "Carbon footprint, renewable content",
+      "trustlessmark_class": ["Carbon Verified", "Renewable Source Proof"],
+      "example_proof": "/verify/energy/renewable.json"
+    },
+    {
+      "id": "forensics",
+      "name": "Forensics & Genomics",
+      "eurofins_focus": "DNA profiling, authenticity tracing",
+      "trustlessmark_class": ["Genetic Origin Verified"],
+      "example_proof": "/verify/forensics/genetic-origin.json"
+    },
+    {
+      "id": "healthcare",
+      "name": "Hospital & Healthcare Environments",
+      "eurofins_focus": "Hygiene, sterilization, infection control",
+      "trustlessmark_class": ["Sterility Verified", "Cleanroom Certified"],
+      "example_proof": "/verify/healthcare/sterility.json"
+    },
+    {
+      "id": "cannabis",
+      "name": "Cannabis & Hemp",
+      "eurofins_focus": "Potency, terpene profile, contaminants",
+      "trustlessmark_class": ["THC/CBD Verified", "Contaminant-Free"],
+      "example_proof": "/verify/cannabis/pesticide-free.json"
+    }
+  ],
+  "notes": "Eurofins operates a global network of laboratories using more than 200,000 analytical methods. Each analytical result can be digitally represented as a TrustlessMark verification class for public traceability and proof of integrity.",
+  "version": "1.0.0",
+  "last_updated": "2025-10-27"
+}

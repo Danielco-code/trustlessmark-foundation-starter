@@ -1,0 +1,28 @@
+{
+  "proof_id": "TM-GEN-2025-02",
+  "proof_class": "GeneticOrigin",
+  "species": "Coffea arabica",
+  "reference_panel": "WCR LDP v2024-04-12",
+  "markers_used": 41,
+  "lab": {
+    "name": "Intertek Agritech",
+    "iso_cert": "ISO 17025",
+    "contact": "agritech@intertek.com"
+  },
+  "method": {
+    "type": "KASP SNP genotyping",
+    "software": "assignPOP (R 1.2.5)",
+    "classification_threshold": 0.9
+  },
+  "predicted_variety": "Pacamara",
+  "membership_probability": 0.96,
+  "regional_reference": ["El Salvador", "Honduras"],
+  "sample_origin": "Flying Circus Coffee — Dallas, Texas, USA",
+  "verified": true,
+  "timestamp": "2025-10-29T00:00:00Z",
+  "limitations": [
+    "Does not directly infer country of origin.",
+    "Reference data limited to Coffea arabica."
+  ],
+  "foundation": "TrustlessMark Foundation (trustlessmark.org)"
+}

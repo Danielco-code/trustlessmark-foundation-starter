@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://verify.trustlessmark.org/verify/schema/industry-mapping.schema.json",
+  "title": "TrustlessMark Industry Mapping Schema",
+  "description": "Defines the structure of industry mappings between scientific analytical domains and TrustlessMark verification classes.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to the schema definition itself."
+    },
+    "canonical_domain": {
+      "type": "string",
+      "description": "Canonical domain name of the TrustlessMark instance (e.g., trustlessmark.org)."
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "description": { "type": "string" }
+      },
+      "required": ["name", "url"]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "partner": { "type": "string" },
+        "founded": { "type": "integer" },
+        "origin_story": { "type": "string" },
+        "method_count": { "type": "integer" },
+        "method_source": { "type": "string" }
+      },
+      "required": ["partner", "method_count"]
+    },
+    "industries": {
+      "type": "array",
+      "description": "List of industries mapped to TrustlessMark verification classes.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "eurofins_focus": { "type": "string" },
+          "trustlessmark_class": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "TrustlessMark verification classes for this industry."
+          },
+          "example_proof": {
+            "type": "string",
+            "pattern": "^/verify/.+\\.json$",
+            "description": "Path to an example proof file for this class."
+          }
+        },
+        "required": ["id", "name", "trustlessmark_class"]
+      },
+      "minItems": 1
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional context or annotations about the mapping set."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Version number of the mapping document."
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the mapping file was last updated."
+    }
+  },
+  "required": [
+    "canonical_domain",
+    "organization",
+    "source",
+    "industries",
+    "version"
+  ]
+}

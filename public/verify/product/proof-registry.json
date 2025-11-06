@@ -1,0 +1,14 @@
+{
+  "product_id": "F001",
+  "product_name": "The Human Cannonball",
+  "claims": {
+    "PFAS-Free": true,
+    "Pesticide-Free": true,
+    "Organic": true,
+    "Genetic Origin": true,
+    "Roast Integrity": false,
+    "Fair Trade": true,
+    "Compostable Packaging": true,
+    "Carbon Neutral": false
+  }
+}

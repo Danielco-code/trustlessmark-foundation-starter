@@ -1,0 +1,14 @@
+{
+  "issuer": "Flying Circus Coffee / TrustlessMark Foundation",
+  "issued": "2025-11-05T00:00:00Z",
+  "proofs": {
+    "F001": "proofs/F001/registry.json",
+    "F002": "proofs/F002/registry.json",
+    "F003": "proofs/F003/registry.json"
+  },
+  "hashes": {
+    "F001": "sha256-TBD",
+    "F002": "sha256-TBD",
+    "F003": "sha256-TBD"
+  }
+}

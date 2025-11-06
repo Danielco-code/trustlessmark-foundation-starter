@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrustlessMark Genetic Origin Verification Schema",
+  "version": "1.0.0",
+  "description": "Defines the structure for genetic-origin verification proofs for coffee and other botanicals using SNP or similar genotyping methods.",
+  "type": "object",
+  "properties": {
+    "proof_id": { "type": "string", "description": "Unique identifier assigned by TrustlessMark Foundation" },
+    "proof_class": { "type": "string", "enum": ["GeneticOrigin"], "description": "Verification proof class name" },
+    "species": { "type": "string", "description": "Botanical species (e.g., Coffea arabica, Coffea canephora)" },
+    "reference_panel": { "type": "string", "description": "Dataset or genotyping reference panel used" },
+    "markers_used": { "type": "integer", "description": "Number of SNP or KASP markers analyzed" },
+    "lab": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "iso_cert": { "type": "string" },
+        "contact": { "type": "string" }
+      },
+      "required": ["name", "iso_cert"]
+    },
+    "method": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "description": "Method used (e.g., KASP SNP genotyping)" },
+        "software": { "type": "string" },
+        "classification_threshold": { "type": "number" }
+      },
+      "required": ["type"]
+    },
+    "predicted_variety": { "type": "string", "description": "Predicted variety identity" },
+    "membership_probability": { "type": "number", "minimum": 0, "maximum": 1 },
+    "regional_reference": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Regions represented in the reference dataset for this classification"
+    },
+    "sample_origin": { "type": "string", "description": "Declared origin or submitting entity" },
+    "verified": { "type": "boolean", "description": "Whether the sample met verification confidence thresholds" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Limitations or caveats for interpretation"
+    },
+    "foundation": { "type": "string", "description": "Issuing foundation or governance entity" }
+  },
+  "required": [
+    "proof_id",
+    "proof_class",
+    "species",
+    "reference_panel",
+    "lab",
+    "method",
+    "predicted_variety",
+    "verified",
+    "timestamp",
+    "foundation"
+  ]
+}

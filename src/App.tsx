@@ -1,4 +1,4 @@
-import { Toaster } from "@/components/ui/toaster";
+﻿import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -7,7 +7,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Technology from "./pages/Technology";
 import Accreditation from "./pages/Accreditation";
-import Verify from "./pages/Verify";
+import VerifyLanding from "./pages/Verify";
+import VerifyPage from "./pages/verify/id";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
@@ -27,7 +28,8 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/accreditation" element={<Accreditation />} />
-          <Route path="/verify" element={<Verify />} />
+          <Route path="/verify" element={<VerifyLanding />} />
+          <Route path="/verify/*" element={<VerifyPage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
@@ -40,3 +42,4 @@ const App = () => (
 );
 
 export default App;
+
