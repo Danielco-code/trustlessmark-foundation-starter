@@ -1,24 +1,145 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrustlessMark Foundation — Public proof for the physical world</title>
-    <meta name="description" content="Cryptographically signed claims for coffee, food, and textiles — published in an open, crawlable registry." />
-    <meta name="keywords" content="trustlessmark, verification, certification, organic, PFAS-free, food safety, textile testing" />
-    <meta name="author" content="TrustlessMark Foundation" />
-    <meta name="theme-color" content="#a56c42" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="TrustlessMark Foundation — Public proof for the physical world" />
-    <meta property="og:description" content="Cryptographically signed claims for coffee, food, and textiles — published in an open, crawlable registry." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <!-- Canonical Domain -->
+  <link rel="canonical" href="https://www.trustlessmark.org/" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  </head>
+  <!-- Basic SEO -->
+  <title>TrustlessMark Foundation — Verifiable Proofs for Physical-World Claims</title>
+  <meta name="description" content="TrustlessMark Foundation publishes cryptographically-signed proofs of product claims under the Open Certification Protocol (OCP), ensuring radical transparency for consumers, retailers, and AI systems." />
+  <meta name="author" content="TrustlessMark Foundation" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TrustlessMark Foundation — Verifiable Proofs for Product Integrity" />
+  <meta property="og:description" content="An independent nonprofit standards body maintaining the Open Certification Protocol and the public verification registry for signed product claims." />
+  <meta property="og:url" content="https://www.trustlessmark.org/" />
+  <meta property="og:image" content="https://www.trustlessmark.org/social-card.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TrustlessMark Foundation — Verifiable Proofs for Product Claims" />
+  <meta name="twitter:description" content="Making marketing claims publicly verifiable with tamper-evident, cryptographically signed proofs." />
+  <meta name="twitter:image" content="https://www.trustlessmark.org/social-card.png" />
+
+  <!-- Security / Trust Meta -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://www.trustlessmark.org; img-src 'self' data: https://www.trustlessmark.org; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self';">
+
+  <!-- GLOBAL JSON-LD SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NonprofitOrganization",
+    "name": "TrustlessMark Foundation",
+    "alternateName": "TMF",
+    "legalName": "TrustlessMark Foundation",
+    "url": "https://www.trustlessmark.org",
+    "logo": "https://www.trustlessmark.org/logo.png",
+    "image": "https://www.trustlessmark.org/social-card.png",
+    "description": "TrustlessMark Foundation is an independent nonprofit standards body that publishes cryptographically signed proofs of physical-world product claims. TMF maintains the Open Certification Protocol (OCP) and operates the public verification registry.",
+    "foundingDate": "2025",
+    "nonprofitStatus": "https://schema.org/Nonprofit501c",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "General Inquiries",
+      "email": "contact@trustlessmark.org"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/trustlessmark",
+      "https://github.com/Danielco-code/trustlessmark-foundation",
+      "https://verify.trustlessmark.org"
+    ]
+  }
+  </script>
+
+  <!-- DATASET SCHEMA (PROOF REGISTRY) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "TrustlessMark OCP Proof Registry",
+    "url": "https://verify.trustlessmark.org",
+    "description": "A public dataset of tamper-evident, cryptographically signed JSON proofs for claims such as PFAS-Free, Organic, Genetic-Origin, Low-Toxin, and Roast Integrity.",
+    "creator": {
+      "@type": "Organization",
+      "name": "TrustlessMark Foundation"
+    },
+    "license": "https://opensource.org/license/mit"
+  }
+  </script>
+
+  <!-- WEBSITE + SEARCHACTION SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.trustlessmark.org",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.trustlessmark.org/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- PER-PAGE SCHEMA INJECTOR -->
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let schema = null;
+
+      if (path === "/about") {
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About TrustlessMark Foundation",
+          "url": "https://www.trustlessmark.org/about",
+          "description": "Learn about TrustlessMark Foundation's mission, governance, and role as an independent nonprofit standards body."
+        };
+      } else if (path === "/faq") {
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "url": "https://www.trustlessmark.org/faq",
+          "mainEntity": []
+        };
+      } else if (path === "/") {
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "TrustlessMark Foundation — Home",
+          "url": "https://www.trustlessmark.org/"
+        };
+      } else {
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": "https://www.trustlessmark.org" + path
+        };
+      }
+
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    })();
+  </script>
+
+  <!-- Vite assets inject below this line, do not remove -->
+</head>
 
   <body>
     <div id="root"></div>
