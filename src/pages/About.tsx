@@ -15,7 +15,7 @@ const About = () => {
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Who we are</h1>
             <p className="text-xl text-muted-foreground mb-8">
-              TrustlessMark Foundation makes claims checkable.
+              TrustlessMark Foundation exists to make real-world product claims publicly checkable.
             </p>
           </div>
         </section>
@@ -26,9 +26,16 @@ const About = () => {
             <Card className="p-8 border-l-4 border-l-primary">
               <h2 className="text-2xl font-bold mb-4">Who we are</h2>
               <p className="text-lg leading-relaxed text-foreground/80 mb-4">
-                TrustlessMark Foundation is an independent standards initiative.
-                We publish signed proofs of physical-world claims — from 'USDA Organic' to 'PFAS-Free Fabric' to 'Low PUFA Eggs.'
-                Our goal is simple: eliminate unverifiable marketing fluff.
+                TrustlessMark Foundation is an independent standards initiative focused on
+                verifiable product integrity. We publish signed proofs of physical-world claims —
+                from “PFAS-free coffee packaging” to “pesticide-free lots” — so that anyone can
+                examine the evidence behind a claim instead of taking it on faith.
+              </p>
+              <p className="text-lg leading-relaxed text-foreground/80">
+                We are early and intentionally small. The project is being developed by founders
+                with backgrounds in technology, specialty coffee, and ethics-driven brand building.
+                Our goal is simple: reduce unverifiable marketing and increase transparent,
+                testable truth.
               </p>
             </Card>
           </div>
@@ -38,12 +45,15 @@ const About = () => {
         <section className="py-16 px-4 bg-surface border-t">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold mb-4">Why now</h2>
+            <p className="text-lg leading-relaxed text-foreground/80 mb-4">
+              Shoppers are asking tougher questions. Retailers are demanding supplier proof.
+              Regulators are looking for traceability. At the same time, AI systems scrape product
+              pages and repeat claims as if they were facts.
+            </p>
             <p className="text-lg leading-relaxed text-foreground/80">
-              We're watching shoppers demand radical honesty.
-              We're watching retailers demand supplier proof.
-              We're watching regulators ask for traceability.
-              And we're watching AI systems scrape claims and repeat them as fact.
-              We believe claimed reality should match physical reality — and be publicly checkable.
+              We believe that what a label claims should match what the lab can prove — and that
+              those proofs should be easy for humans and machines to inspect. TrustlessMark exists
+              to make that proof layer open, durable, and independent.
             </p>
           </div>
         </section>
@@ -53,23 +63,63 @@ const About = () => {
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold mb-4">How we operate</h2>
             <p className="text-lg leading-relaxed text-foreground/80 mb-6">
-              We maintain open JSON schemas for each category — coffee, food, textiles.
-              We cryptographically sign and timestamp submitted claims.
-              We publish them to a public registry at verify.trustlessmark.org.
-              We don't sell 'trust.' We make proof public.
+              We maintain open JSON schemas for each category — beginning with specialty coffee and
+              related products. We cryptographically sign and timestamp submitted claims, then
+              publish them to a public registry that can be queried by people, apps, and
+              verification tools.
+            </p>
+            <p className="text-lg leading-relaxed text-foreground/80 mb-6">
+              We do not ask anyone to “trust” us as an authority. Instead, we make the underlying
+              evidence visible: which lab, which test, which lot, which date, which threshold.
             </p>
             <Card className="p-6 bg-cream border-l-4 border-l-primary">
-              <h3 className="text-xl font-semibold mb-3">Governance</h3>
+              <h3 className="text-xl font-semibold mb-3">Governance (early stage)</h3>
+              <p className="text-foreground/80 mb-3">
+                Today, the project is governed by a small founding group who maintain the schemas,
+                registries, and signing tools. As the protocol matures, governance is intended to
+                expand to include independent laboratories, technical contributors, and
+                consumer-protection voices.
+              </p>
               <p className="text-foreground/80">
-                Published under the Open Certification Protocol (OCP-v1).
-                Annual renewal of proofs prevents stale or abandoned claims.
-                Change control is logged and auditable.
+                All changes to schemas and proofs are versioned and auditable. Our long-term aim is
+                a governance model that is transparent, documented, and open to external review.
               </p>
             </Card>
           </div>
         </section>
 
-        {/* Core Values */}
+        {/* What We Do vs. What We Don’t */}
+        <section className="py-16 px-4 bg-surface border-t">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold mb-4">What we do — and what we don’t</h2>
+            <div className="space-y-4 text-foreground/80">
+              <p className="leading-relaxed">
+                <span className="font-semibold">We do:</span> publish structured, signed proofs of
+                product-integrity claims (for example, “this lot was tested for PFAS by lab X on
+                date Y, using method Z, with result R”).
+              </p>
+              <p className="leading-relaxed">
+                <span className="font-semibold">We do:</span> design open schemas so that multiple
+                brands, labs, and tools can interoperate on neutral ground.
+              </p>
+              <p className="leading-relaxed">
+                <span className="font-semibold">We do not:</span> provide legal services,
+                trademark-registration services, or “official certificates” for trademarks or
+                business registrations.
+              </p>
+              <p className="leading-relaxed">
+                <span className="font-semibold">We do not:</span> request or store sensitive
+                financial information, crypto private keys, or customer payment data.
+              </p>
+              <p className="leading-relaxed">
+                TrustlessMark is about verifiable product claims, not about legal filings or
+                trademark paperwork.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Principles */}
         <section className="py-16 px-4 bg-surface border-t">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl font-bold text-center mb-12">Core Principles</h2>
@@ -78,7 +128,8 @@ const About = () => {
                 <Scale className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-lg font-semibold mb-2">Independence</h3>
                 <p className="text-sm text-muted-foreground">
-                  We operate as a neutral, nonprofit standards body free from commercial influence.
+                  We operate as an independent standards initiative, not as a house brand or
+                  marketing department.
                 </p>
               </Card>
 
@@ -86,15 +137,17 @@ const About = () => {
                 <BookOpen className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-lg font-semibold mb-2">Open Standards</h3>
                 <p className="text-sm text-muted-foreground">
-                  Our protocol is open-source and publicly documented for universal access.
+                  Our schemas and protocols are published openly so they can be implemented,
+                  critiqued, or extended by others.
                 </p>
               </Card>
 
               <Card className="p-6 text-center border-border bg-card">
                 <Globe className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-lg font-semibold mb-2">Decentralization</h3>
+                <h3 className="text-lg font-semibold mb-2">Verifiability</h3>
                 <p className="text-sm text-muted-foreground">
-                  No single entity controls the verification infrastructure or data.
+                  Claims should be backed by evidence that can be checked by humans, machines, and
+                  independent third parties.
                 </p>
               </Card>
 
@@ -102,36 +155,8 @@ const About = () => {
                 <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-lg font-semibold mb-2">Multi-Stakeholder</h3>
                 <p className="text-sm text-muted-foreground">
-                  Governance includes labs, retailers, technologists, and consumer advocates.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Governance */}
-        <section className="py-16 px-4 border-t">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-center mb-8">Governance Structure</h2>
-            <div className="space-y-6">
-              <Card className="p-6 border-border bg-card">
-                <h3 className="text-xl font-semibold mb-3">Founding Council</h3>
-                <p className="text-muted-foreground">
-                  A multi-stakeholder board representing laboratory science, digital commerce, blockchain technology, and consumer advocacy. The Council guides strategic direction and maintains protocol integrity.
-                </p>
-              </Card>
-
-              <Card className="p-6 border-border bg-card">
-                <h3 className="text-xl font-semibold mb-3">Technical Committee</h3>
-                <p className="text-muted-foreground">
-                  Engineers and cryptographers responsible for protocol development, security audits, and technical standards maintenance.
-                </p>
-              </Card>
-
-              <Card className="p-6 border-border bg-card">
-                <h3 className="text-xl font-semibold mb-3">Accreditation Board</h3>
-                <p className="text-muted-foreground">
-                  Reviews and approves laboratories and verification partners seeking to issue TrustlessMark certifications.
+                  Over time, governance is intended to include labs, brands, technologists, and
+                  consumer advocates — not just one voice.
                 </p>
               </Card>
             </div>
@@ -139,15 +164,24 @@ const About = () => {
         </section>
 
         {/* History */}
-        <section className="py-16 px-4 bg-surface border-t">
+        <section className="py-16 px-4 border-t">
           <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-center mb-8">Our History</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Our origins</h2>
             <div className="space-y-4 text-foreground/80">
               <p className="leading-relaxed">
-                TrustlessMark began as the Open Coffee Proof project in 2024, a grassroots initiative to bring laboratory-verified transparency to specialty coffee. The project demonstrated that cryptographic verification could make product claims measurable and accountable.
+                TrustlessMark began as an “Open Coffee Proof” experiment: could we tie laboratory
+                test results for specialty coffee directly to the packaging that shoppers scan in
+                the grocery aisle?
               </p>
               <p className="leading-relaxed">
-                In 2025, the project evolved into the TrustlessMark Foundation to expand the framework beyond coffee into broader food, beverage, and consumer goods categories. The Foundation now serves as the neutral custodian of the open standard.
+                That experiment showed us something important: once you can reliably connect a
+                physical lot to a digital proof, you can start to reduce confusion and increase
+                accountability. From there, the project expanded into a broader framework for
+                food-adjacent and consumer-goods claims.
+              </p>
+              <p className="leading-relaxed">
+                The work is ongoing, and the system is still evolving — but the north star is
+                stable: make product claims measurable, auditable, and publicly inspectable.
               </p>
             </div>
           </div>

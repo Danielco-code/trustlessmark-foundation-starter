@@ -27,8 +27,68 @@
           ]
         }
       ]
+    },
+    {
+      "code": "genetic-origin",
+      "name": "GENETIC-ORIGIN",
+      "categories": [
+        {
+          "type": "pacamara-genetic-proof.json",
+          "products": [
+            {
+              "code": "unknown",
+              "latest_lot": null,
+              "verification_url": "https://verify.trustlessmark.org/verify/genetic-origin/pacamara-genetic-proof.json",
+              "integrity": {
+                "algorithm": "SHA3-256",
+                "hash": "0503da22b0b199f4aac7ed2a42341a411b725828d79054a96285445391d2f70f"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "industry-mapping.json",
+      "name": "INDUSTRY-MAPPING.JSON",
+      "categories": [
+        {
+          "type": "uncategorized",
+          "products": [
+            {
+              "code": "unknown",
+              "latest_lot": null,
+              "verification_url": "https://verify.trustlessmark.org/verify/industry-mapping.json",
+              "integrity": {
+                "algorithm": "SHA3-256",
+                "hash": "1b1b313bf67ec476291449c12ee5cabb851845cb13334b783a4b886a06d72da8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "product",
+      "name": "PRODUCT",
+      "categories": [
+        {
+          "type": "proof-registry.json",
+          "products": [
+            {
+              "code": "unknown",
+              "latest_lot": null,
+              "verification_url": "https://verify.trustlessmark.org/verify/product/proof-registry.json",
+              "integrity": {
+                "algorithm": "SHA3-256",
+                "hash": "afeb906de761c80c271df0b113342c5a95f0d7a350559e654d71eaa6df4b1b7f"
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "version": "1.0.0",
-  "last_updated": "2025-10-27"
+  "last_updated": "2025-11-06"
 }

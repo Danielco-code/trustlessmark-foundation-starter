@@ -195,3 +195,4 @@ curl https://verify.trustlessmark.org/textiles/certifications/pfas-free-fabric.j
 };
 
 export default Resources;
+

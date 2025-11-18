@@ -1,0 +1,20 @@
+[
+  {
+    "project": "F001",
+    "product_id": 155896,
+    "registry": "./F001/registry.json",
+    "manifest": null
+  },
+  {
+    "project": "F002",
+    "product_id": 155896,
+    "registry": "./F002/registry.json",
+    "manifest": null
+  },
+  {
+    "project": "F003",
+    "product_id": 155896,
+    "registry": "./F003/registry.json",
+    "manifest": null
+  }
+]
